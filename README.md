@@ -1,1 +1,1 @@
-"# learning redis caching mechanism" 
+learning redis caching mechanism

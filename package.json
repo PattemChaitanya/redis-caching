@@ -1,10 +1,13 @@
 {
   "name": "redis-caching",
   "version": "1.0.0",
-  "description": "",
+  "description": "learning redis caching techniques",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev-start": "node alternative-approach.js",
+    "prod-start": "node alternative-approach-password.js",
+    "layered-start": "node layered-redis-approach.js"
   },
   "keywords": [],
   "author": "",

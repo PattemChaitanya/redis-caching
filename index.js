@@ -1,16 +1,5 @@
 const express = require("express");
-const redis = require("redis");
-const bluebird = require("bluebird");
-
-// Create Redis client
-const redisClient = redis.createClient({
-  host: "localhost",
-  port: 6379, // Default Redis port
-});
-
-// Promisify Redis client methods
-const getAsync = bluebird.promisifyAll(redisClient.get).bind(redisClient);
-const setAsync = bluebird.promisifyAll(redisClient.set).bind(redisClient);
+const { getAsync, setAsync } = require("./utils/redisClient");
 
 const app = express();
 
