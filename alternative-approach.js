@@ -1,7 +1,7 @@
 const Redis = require("redis");
 const crypto = require("crypto");
 
-// Create a Redis instance
+// Instantiate a Redis cluster
 const redis = new Redis.Cluster([
   {
     host: "redis-host-1",
@@ -17,7 +17,7 @@ const redis = new Redis.Cluster([
   },
 ]);
 
-// Define a cache manager
+// Construct a cache manager
 const cacheManager = {
   async get(key) {
     const cachedData = await redis.get(key);
@@ -37,7 +37,7 @@ const cacheManager = {
   },
 };
 
-// Function to get data from cache or external source
+// Function to retrieve data from cache or external source
 async function getData(
   key,
   fetchDataFunction,
@@ -60,12 +60,12 @@ async function getData(
   return data;
 }
 
-// Example usage: Fetching user data
+// Example usage: Retrieving user data
 const fetchUserData = async (userId) => {
   const key = cacheManager.generateKey("user", userId);
 
   const fetchData = async () => {
-    // Simulate fetching user data from an external source
+    // Simulate retrieving user data from an external source
     return {
       id: userId,
       name: "John Doe",
@@ -80,10 +80,10 @@ const fetchUserData = async (userId) => {
   console.log("User data:", userData);
 };
 
-// Fetch user data and cache it for 1 hour
+// Retrieve user data and cache it for 1 hour
 fetchUserData(1);
 
-// Fetch user data without caching
+// Retrieve user data without caching
 fetchUserData(2, { shouldCache: false });
 
 // Invalidate cached user data
